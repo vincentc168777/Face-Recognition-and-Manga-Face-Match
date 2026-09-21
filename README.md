@@ -4,6 +4,10 @@ Upload a photo of your face and get matched with the manga expression panel that
 
 This isn't identity matching ("is this the same person"). It's **expression matching across domains**: mapping a real photo and a stylized manga panel into the same embedding space to find the closest emotional/expressive match, despite the two having completely different visual styles (photographic vs. line-art).
 
+## Screenshots
+<img width="764" height="702" alt="image" src="https://github.com/user-attachments/assets/3632c204-b975-439d-9f47-a23fca4ca384" />
+
+
 ## Demo
 
 Upload a photo → the app detects your face → embeds it with CLIP → compares it against a dataset of manga expression panels → returns the top matches with similarity scores.
@@ -113,6 +117,4 @@ Interactive API docs available at `http://localhost:8000/docs`.
 - Expanding the manga dataset and balancing image counts per emotion category
 - Deploying with a persistent GPU-backed inference endpoint for faster response times at scale
 
-## License
 
-*(Add a license, e.g. MIT, if you want this reusable — and note separately that the manga panel images are used for research/demo purposes and are not your own IP if that's the case)*
