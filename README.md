@@ -5,7 +5,7 @@ Upload a photo of your face and get matched with the manga expression panel that
 This isn't identity matching ("is this the same person"). It's **expression matching across domains**: mapping a real photo and a stylized manga panel into the same embedding space to find the closest emotional/expressive match, despite the two having completely different visual styles (photographic vs. line-art).
 
 ## Screenshots
-<img width="764" height="702" alt="image" src="https://github.com/user-attachments/assets/3632c204-b975-439d-9f47-a23fca4ca384" />
+<img width="624" height="719" alt="image" src="https://github.com/user-attachments/assets/8d8aef8f-eff4-4948-8a28-ba032ed377c7" />
 <img width="626" height="766" alt="image" src="https://github.com/user-attachments/assets/4863b28e-95b5-4eb0-8e15-406f87d58202" />
 <img width="597" height="681" alt="image" src="https://github.com/user-attachments/assets/617bd4d7-9061-4085-b2bc-524843b93fae" />
 
