@@ -6,6 +6,9 @@ This isn't identity matching ("is this the same person"). It's **expression matc
 
 ## Screenshots
 <img width="764" height="702" alt="image" src="https://github.com/user-attachments/assets/3632c204-b975-439d-9f47-a23fca4ca384" />
+<img width="626" height="766" alt="image" src="https://github.com/user-attachments/assets/4863b28e-95b5-4eb0-8e15-406f87d58202" />
+<img width="597" height="681" alt="image" src="https://github.com/user-attachments/assets/617bd4d7-9061-4085-b2bc-524843b93fae" />
+
 
 
 ## Demo
