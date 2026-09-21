@@ -7,7 +7,8 @@ This isn't identity matching ("is this the same person"). It's **expression matc
 ## Screenshots
 <img width="624" height="719" alt="image" src="https://github.com/user-attachments/assets/8d8aef8f-eff4-4948-8a28-ba032ed377c7" />
 <img width="626" height="766" alt="image" src="https://github.com/user-attachments/assets/4863b28e-95b5-4eb0-8e15-406f87d58202" />
-<img width="597" height="681" alt="image" src="https://github.com/user-attachments/assets/617bd4d7-9061-4085-b2bc-524843b93fae" />
+<img width="616" height="710" alt="image" src="https://github.com/user-attachments/assets/cb862d17-f7b0-4ec5-ba89-5f0ceb6fb590" />
+
 
 
 
