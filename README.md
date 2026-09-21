@@ -1,6 +1,6 @@
 # Manga Face Match
 
-Upload a photo of your face and get matched with the manga expression panel that most closely resembles it — powered by CLIP embeddings, not traditional facial recognition.
+Upload a photo of your face and get matched with the manga expression panel that most closely resembles it.
 
 This isn't identity matching ("is this the same person"). It's **expression matching across domains**: mapping a real photo and a stylized manga panel into the same embedding space to find the closest emotional/expressive match, despite the two having completely different visual styles (photographic vs. line-art).
 
