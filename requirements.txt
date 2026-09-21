@@ -1,0 +1,10 @@
+torch
+torchvision
+open_clip_torch
+numpy
+opencv-python-headless==4.10.0.84
+pillow
+fastapi
+uvicorn[standard]
+python-multipart
+mediapipe==0.10.9
