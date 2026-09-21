@@ -12,7 +12,6 @@ This isn't identity matching ("is this the same person"). It's **expression matc
 
 Upload a photo → the app detects your face → embeds it with CLIP → compares it against a dataset of manga expression panels → returns the top matches with similarity scores.
 
-*(Add a screenshot or GIF of the web UI here once you have one — this is the single highest-impact addition for a GitHub README)*
 
 ## How it works
 
