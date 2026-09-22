@@ -3,16 +3,15 @@ import open_clip
 import numpy as np
 import mediapipe as mp
 from PIL import Image
+from sklearn.metrics.pairwise import cosine_similarity
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-# Larger model and LAION checkpoint better for stylized/anime-style art than plain OpenAI CLIP
 model, _, preprocess = open_clip.create_model_and_transforms(
     "ViT-L-14", pretrained="laion2b_s32b_b82k"
 )
 model = model.to(device).eval()
 
-# mediaPipe face detector replaces haar cascade 
 mp_face_detection = mp.solutions.face_detection.FaceDetection(
     model_selection=1, min_detection_confidence=0.5
 )
@@ -30,16 +29,10 @@ def crop_face(image_path):
     bbox = detection.location_data.relative_bounding_box
     h, w, _ = img_array.shape
 
-    x = int(bbox.xmin * w)
-    y = int(bbox.ymin * h)
-    box_w = int(bbox.width * w)
-    box_h = int(bbox.height * h)
-
-    # Clamp to image bounds in case the box goes slightly negative/over
-    x = max(0, x)
-    y = max(0, y)
-    box_w = min(box_w, w - x)
-    box_h = min(box_h, h - y)
+    x = max(0, int(bbox.xmin * w))
+    y = max(0, int(bbox.ymin * h))
+    box_w = min(int(bbox.width * w), w - x)
+    box_h = min(int(bbox.height * h), h - y)
 
     cropped = img_array[y:y + box_h, x:x + box_w]
 
@@ -55,26 +48,25 @@ def embed_pil_image(pil_image):
         embedding = embedding / embedding.norm(dim=-1, keepdim=True)
     return embedding.cpu().numpy().flatten()
 
-def cosine_similarity(a, b):
-    return np.dot(a, b)
-
 def find_top_matches(photo_path, top_k=1):
     data = np.load("manga_embeddings.npz", allow_pickle=True)
     filenames = data["filenames"]
     emotions = data["emotions"]
-    vectors = data["vectors"]
+    vectors = data["vectors"]  # shape: (num_panels, embedding_dim)
 
     face_img = crop_face(photo_path)
-    query_vec = embed_pil_image(face_img)
+    query_vec = embed_pil_image(face_img)  # shape: (embedding_dim,)
 
-    similarities = [cosine_similarity(query_vec, v) for v in vectors]
+    # sklearn expects 2D arrays: reshape query to (1, embedding_dim)
+    similarities = cosine_similarity(query_vec.reshape(1, -1), vectors)[0]
+
     ranked = sorted(zip(filenames, emotions, similarities), key=lambda x: x[2], reverse=True)
 
     return ranked[:top_k]
 
 if __name__ == "__main__":
     photo_path = "test_photo.jpg"
-    matches = find_top_matches(photo_path)
+    matches = find_top_matches(photo_path, top_k=1)
 
     print("Top matches:")
     for fname, emotion, score in matches:
